@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CookBook.Model;
+using CookBook.DB.PostgreSQL;
 
 namespace CookBook.API.Controllers
 {
     [Route("api/[controller]")]
     public class CookbookController : Controller
     {
-        private readonly CookbookContext _db;
-        public CookbookController(CookbookContext db)
+        private readonly CookbookContext_PostgreSQL _db;
+        public CookbookController(CookbookContext_PostgreSQL db)
         {
             _db = db;
         }
@@ -24,26 +24,5 @@ namespace CookBook.API.Controllers
                 $"CookBooks: {_db.Cookbooks.Count()}"
             };
         }
-
-        // [HttpGet("{id}")]
-        // public string Get(int id)
-        // {
-        //     return "value";
-        // }
-
-        // [HttpPost]
-        // public void Post([FromBody]string value)
-        // {
-        // }
-
-        // [HttpPut("{id}")]
-        // public void Put(int id, [FromBody]string value)
-        // {
-        // }
-
-        // [HttpDelete("{id}")]
-        // public void Delete(int id)
-        // {
-        // }
     }
 }

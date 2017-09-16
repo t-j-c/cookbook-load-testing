@@ -4820,15 +4820,26 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "CookBook.Model/1.0.0": {
+      "CookBook.DB.PostgreSQL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "CookBook.Model": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.0.0",
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "2.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL.Design": "1.1.1"
         },
+        "compile": {
+          "bin/placeholder/CookBook.DB.PostgreSQL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CookBook.DB.PostgreSQL.dll": {}
+        }
+      },
+      "CookBook.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
         "compile": {
           "bin/placeholder/CookBook.Model.dll": {}
         },
@@ -12681,6 +12692,11 @@
         "windowsazure.storage.nuspec"
       ]
     },
+    "CookBook.DB.PostgreSQL/1.0.0": {
+      "type": "project",
+      "path": "../CookBook.DB.PostgreSQL/CookBook.DB.PostgreSQL.csproj",
+      "msbuildProject": "../CookBook.DB.PostgreSQL/CookBook.DB.PostgreSQL.csproj"
+    },
     "CookBook.Model/1.0.0": {
       "type": "project",
       "path": "../CookBook.Model/CookBook.Model.csproj",
@@ -12689,6 +12705,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "CookBook.DB.PostgreSQL >= 1.0.0",
       "CookBook.Model >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0"
@@ -12724,6 +12741,9 @@
           "projectReferences": {
             "/home/taylor/Workspaces/CookBook/CookBook.Model/CookBook.Model.csproj": {
               "projectPath": "/home/taylor/Workspaces/CookBook/CookBook.Model/CookBook.Model.csproj"
+            },
+            "/home/taylor/Workspaces/CookBook/CookBook.DB.PostgreSQL/CookBook.DB.PostgreSQL.csproj": {
+              "projectPath": "/home/taylor/Workspaces/CookBook/CookBook.DB.PostgreSQL/CookBook.DB.PostgreSQL.csproj"
             }
           }
         }

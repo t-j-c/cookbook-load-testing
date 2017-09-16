@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CookBook.Model;
+﻿using CookBook.DB.PostgreSQL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace CookBook.API
 {
@@ -24,8 +18,10 @@ namespace CookBook.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connStr = Configuration.GetConnectionString("CookbookDatabase");
-            services.AddDbContext<CookbookContext>(opt => opt.UseNpgsql(connStr));
+            string connStr;
+            
+            connStr = Configuration.GetConnectionString("CookbookDatabase_PostgreSQL");
+            services.AddDbContext<CookbookContext_PostgreSQL>(opt => opt.UseNpgsql(connStr));
 
             services.AddMvc();
         }

@@ -7,11 +7,11 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("CookBook.Model")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("CookBook.DB.PostgreSQL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Package Description")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("CookBook.Model")]
-[assembly: System.Reflection.AssemblyTitleAttribute("CookBook.Model")]
+[assembly: System.Reflection.AssemblyProductAttribute("CookBook.DB.PostgreSQL")]
+[assembly: System.Reflection.AssemblyTitleAttribute("CookBook.DB.PostgreSQL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

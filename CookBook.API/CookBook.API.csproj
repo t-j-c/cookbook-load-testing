@@ -13,5 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CookBook.Model\CookBook.Model.csproj" />
+    <ProjectReference Include="..\CookBook.DB.PostgreSQL\CookBook.DB.PostgreSQL.csproj" />
   </ItemGroup>
 </Project>

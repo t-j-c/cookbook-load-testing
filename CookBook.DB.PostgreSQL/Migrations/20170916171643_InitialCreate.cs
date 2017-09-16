@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace CookBook.Model.Migrations
+namespace CookBook.DB.PostgreSQL.Migrations
 {
     public partial class InitialCreate : Migration
     {

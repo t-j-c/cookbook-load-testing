@@ -23,6 +23,7 @@
     ".NETCoreApp,Version=v2.0": {
       "CookBook.API/1.0.0": {
         "dependencies": {
+          "CookBook.DB.PostgreSQL": "1.0.0",
           "CookBook.Model": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.0",
           "Microsoft.NETCore.App": "2.0.0"
@@ -3863,13 +3864,22 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "CookBook.Model/1.0.0": {
+      "CookBook.DB.PostgreSQL/1.0.0": {
         "dependencies": {
+          "CookBook.Model": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.0.0",
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "2.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL.Design": "1.1.1"
         },
+        "runtime": {
+          "CookBook.DB.PostgreSQL.dll": {}
+        },
+        "compile": {
+          "CookBook.DB.PostgreSQL.dll": {}
+        }
+      },
+      "CookBook.Model/1.0.0": {
         "runtime": {
           "CookBook.Model.dll": {}
         },
@@ -6097,6 +6107,11 @@
       "sha512": "sha512-W6ZZ0/o7+3Qb77mRAQyLjPudHG3OMeeQ4p9yY13PUdJArmRCx2cLMm5F4tpIjJXxzHC0ew0oK7DMDGILMdfCnw==",
       "path": "windowsazure.storage/8.1.4",
       "hashPath": "windowsazure.storage.8.1.4.nupkg.sha512"
+    },
+    "CookBook.DB.PostgreSQL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "CookBook.Model/1.0.0": {
       "type": "project",
