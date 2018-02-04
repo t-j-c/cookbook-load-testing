@@ -1,8 +1,0 @@
-/home/taylor/Workspaces/CookBook/CookBook.Model/bin/Debug/netcoreapp2.0/CookBook.Model.deps.json
-/home/taylor/Workspaces/CookBook/CookBook.Model/bin/Debug/netcoreapp2.0/CookBook.Model.dll
-/home/taylor/Workspaces/CookBook/CookBook.Model/bin/Debug/netcoreapp2.0/CookBook.Model.pdb
-/home/taylor/Workspaces/CookBook/CookBook.Model/obj/Debug/netcoreapp2.0/CookBook.Model.csproj.CoreCompileInputs.cache
-/home/taylor/Workspaces/CookBook/CookBook.Model/obj/Debug/netcoreapp2.0/CookBook.Model.AssemblyInfoInputs.cache
-/home/taylor/Workspaces/CookBook/CookBook.Model/obj/Debug/netcoreapp2.0/CookBook.Model.AssemblyInfo.cs
-/home/taylor/Workspaces/CookBook/CookBook.Model/obj/Debug/netcoreapp2.0/CookBook.Model.dll
-/home/taylor/Workspaces/CookBook/CookBook.Model/obj/Debug/netcoreapp2.0/CookBook.Model.pdb
