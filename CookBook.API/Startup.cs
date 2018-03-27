@@ -1,4 +1,6 @@
 ﻿using CookBook.DB.PostgreSQL;
+using CookBook.DB.PostgreSQL.Repositories;
+using CookBook.Model.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +24,8 @@ namespace CookBook.API
             
             connStr = Configuration.GetConnectionString("CookbookDatabase_PostgreSQL");
             services.AddDbContext<CookbookContext_PostgreSQL>(opt => opt.UseNpgsql(connStr));
+
+            services.AddTransient<ICookbookRepository, CookbookRepository>();
 
             services.AddMvc();
         }

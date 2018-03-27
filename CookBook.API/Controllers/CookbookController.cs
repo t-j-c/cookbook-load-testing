@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using CookBook.DB.PostgreSQL;
+using CookBook.Model.Repositories;
 
 namespace CookBook.API.Controllers
 {
     [Route("api/[controller]")]
     public class CookbookController : Controller
     {
-        private readonly CookbookContext_PostgreSQL _db;
-        public CookbookController(CookbookContext_PostgreSQL db)
+        private readonly ICookbookRepository _db;
+        public CookbookController(ICookbookRepository db)
         {
             _db = db;
         }
@@ -21,7 +18,7 @@ namespace CookBook.API.Controllers
         {
             return new string[] 
             { 
-                $"CookBooks: {_db.Cookbooks.Count()}"
+                $"CookBooks: {_db.Count()}"
             };
         }
     }
