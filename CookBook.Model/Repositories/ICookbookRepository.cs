@@ -7,5 +7,8 @@ namespace CookBook.Model.Repositories
     {
         int Count();
         ICollection<Cookbook> Get();
+        Cookbook Get(string name);
+        void Add(string name);
+        void Delete();
     }
 }

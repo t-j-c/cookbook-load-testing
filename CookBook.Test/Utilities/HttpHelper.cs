@@ -1,14 +1,35 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace CookBook.Test.Utilities
 {
     public static class HttpHelper
     {
+        public static HttpResponseMessage ExecuteRequest(HttpMethod method, string url, object content = null)
+        {
+            using (var client = new HttpClient())
+            {
+                switch (method)
+                {
+                    case var m when m == HttpMethod.Get:
+                        return client.GetAsync(url).GetAwaiter().GetResult();
+                    case var m when m == HttpMethod.Post:
+                        var jsonContent = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json");
+                        return client.PostAsync(url, jsonContent).GetAwaiter().GetResult();
+                    case var m when m == HttpMethod.Delete:
+                        return client.DeleteAsync(url).GetAwaiter().GetResult();
+                    default:
+                        return null;
+                }
+            }
+        }
+
         public static HttpResults ExecuteParallelRequests(string url, int totalNumberOfRequests, int maxDegreeOfParallelism = -1)
         {
             var results = new ConcurrentBag<HttpResult>();
@@ -24,7 +45,8 @@ namespace CookBook.Test.Utilities
                     var startTime = DateTime.Now;
                     var response = client.GetAsync(url).GetAwaiter().GetResult();
                     var endTime = DateTime.Now;
-                   
+
+                    if (!response.IsSuccessStatusCode) throw new Exception($"Request to {url} was unsucessful. StatusCode: {response.StatusCode}; ReasonPhrase {response.ReasonPhrase};");
                     results.Add(new HttpResult(response, startTime, endTime));
                 });
             }
