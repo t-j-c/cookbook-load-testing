@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CookBook.DB.PostgreSQL.Repositories
 {
-    public class CookbookRepository : ICookbookRepository
+    public class CookbookPostgresRepository : ICookbookRepository
     {
         private readonly CookbookContext_PostgreSQL _dbContext;
-        public CookbookRepository(CookbookContext_PostgreSQL dbContext)
+        public CookbookPostgresRepository(CookbookContext_PostgreSQL dbContext)
         {
             _dbContext = dbContext;
         }

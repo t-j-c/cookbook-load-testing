@@ -9,7 +9,7 @@ namespace CookBook.Test.Utilities
 
         public static void CreateCookbooks(string namePrefix, int amount = 100)
         {
-            for (var i = 1; i <= 100; i++)
+            for (var i = 1; i <= amount; i++)
             {
                 var command = new AddCookbookCommand { Name = $"{namePrefix}_{i}" };
                 HttpHelper.ExecuteRequest(HttpMethod.Post, CookbookApiUrl, command);

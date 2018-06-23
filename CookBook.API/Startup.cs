@@ -25,7 +25,7 @@ namespace CookBook.API
             connStr = Configuration.GetConnectionString("CookbookDatabase_PostgreSQL");
             services.AddDbContext<CookbookContext_PostgreSQL>(opt => opt.UseNpgsql(connStr));
 
-            services.AddTransient<ICookbookRepository, CookbookRepository>();
+            services.AddTransient<ICookbookRepository, CookbookPostgresRepository>();
 
             services.AddMvc();
         }
