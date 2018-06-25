@@ -1,8 +1,5 @@
-﻿
-using CookBook.Model.Entities;
+﻿using CookBook.Model.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
 
 namespace CookBook.DB.PostgreSQL
 {

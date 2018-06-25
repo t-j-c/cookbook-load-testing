@@ -1,7 +1,7 @@
-﻿using CookBook.DB.PostgreSQL;
+﻿using CookBook.DB.CosmosDB.Repositories;
+using CookBook.Model.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,10 +18,7 @@ namespace CookBook.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            string connStr;
-            
-            connStr = Configuration.GetConnectionString("CookbookDatabase_PostgreSQL");
-            services.AddDbContext<CookbookContext_PostgreSQL>(opt => opt.UseNpgsql(connStr));
+            services.AddSingleton<ICookbookRepository, CookbookCosmosDbRepository>();
 
             services.AddMvc();
         }
