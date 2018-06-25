@@ -11,7 +11,6 @@ namespace CookBook.Test.Tests
         public void AverageResponseTime_100Requests_2MaxParallel()
         {
             // Arrange
-            CookbookTestDataSetup.DeleteCookbooks();
             CookbookTestDataSetup.CreateCookbooks(_cookbookNamePrefix);
 
             // Act
@@ -25,7 +24,6 @@ namespace CookBook.Test.Tests
         public void AverageResponseTime_100Requests_4MaxParallel()
         {
             // Arrange
-            CookbookTestDataSetup.DeleteCookbooks();
             CookbookTestDataSetup.CreateCookbooks(_cookbookNamePrefix);
 
             // Act
@@ -33,15 +31,12 @@ namespace CookBook.Test.Tests
 
             // Assert
             Assert.InRange(results.AverageTimeInMilliseconds, 0, 6);
-
-            CookbookTestDataSetup.DeleteCookbooks();
         }
 
         [Fact]
         public void AverageResponseTime_100Requests_6MaxParallel()
         {
             // Arrange
-            CookbookTestDataSetup.DeleteCookbooks();
             CookbookTestDataSetup.CreateCookbooks(_cookbookNamePrefix);
 
             // Act
@@ -49,8 +44,6 @@ namespace CookBook.Test.Tests
 
             // Assert
             Assert.InRange(results.AverageTimeInMilliseconds, 0, 8);
-
-            CookbookTestDataSetup.DeleteCookbooks();
         }
     }
 }

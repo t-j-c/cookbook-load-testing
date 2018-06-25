@@ -9,16 +9,13 @@ namespace CookBook.Test.Utilities
 
         public static void CreateCookbooks(string namePrefix, int amount = 100)
         {
+            HttpHelper.ExecuteRequest(HttpMethod.Delete, $"{CookbookApiUrl}/all");
+
             for (var i = 1; i <= amount; i++)
             {
                 var command = new AddCookbookCommand { Name = $"{namePrefix}_{i}" };
                 HttpHelper.ExecuteRequest(HttpMethod.Post, CookbookApiUrl, command);
             }
-        }
-
-        public static void DeleteCookbooks()
-        {
-            HttpHelper.ExecuteRequest(HttpMethod.Delete, $"{CookbookApiUrl}/all");
         }
     }
 }

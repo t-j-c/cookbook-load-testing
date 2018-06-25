@@ -11,8 +11,7 @@ namespace CookBook.Test.Tests
         public void AverageResponseTime_100Requests_1MaxParallel()
         {
             // Arrange
-            CookbookTestDataSetup.DeleteCookbooks();
-            CookbookTestDataSetup.CreateCookbooks(_cookbookNamePrefix);
+            CookbookTestDataSetup.CreateCookbooks(_cookbookNamePrefix, 1000);
 
             // Act
             var results = HttpHelper.ExecuteParallelRequests($"{CookbookTestDataSetup.CookbookApiUrl}/{_cookbookNamePrefix}_1", 100, 1);
