@@ -17,7 +17,7 @@ namespace CookBook.Test.Tests
             var results = HttpHelper.ExecuteParallelRequests($"{CookbookTestDataSetup.CookbookApiUrl}/{_cookbookNamePrefix}_1", 100, 1);
 
             // Assert
-            Assert.InRange(results.AverageTimeInMilliseconds, 0, 6);
+            Assert.InRange(results.AverageTimeInMilliseconds, 0, 2);
         }
     }
 }

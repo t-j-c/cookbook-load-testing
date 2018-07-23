@@ -1,15 +1,20 @@
 ﻿using System.Collections.Generic;
 using CookBook.Model.Entities;
 using CookBook.Model.Repositories;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using StackExchange.Redis;
 
 namespace CookBook.DB.Redis.Repositories
 {
     public class CookbookRedisRepository : ICookbookRepository
     {
         private readonly ICookbookRepository _parentRepository;
-        public CookbookRedisRepository(ICookbookRepository parentRepository)
+        private readonly IDatabase _cache;
+        public CookbookRedisRepository(ICookbookRepository parentRepository, IConfiguration configuration)
         {
             _parentRepository = parentRepository;
+            _cache = ConnectionMultiplexer.Connect(configuration["CookBook.Redis:Connection"]).GetDatabase();
         }
 
         public void Add(string name)
@@ -24,6 +29,7 @@ namespace CookBook.DB.Redis.Repositories
 
         public void Delete()
         {
+            _cache.Execute("FLUSHALL");
             _parentRepository.Delete();
         }
 
@@ -34,7 +40,12 @@ namespace CookBook.DB.Redis.Repositories
 
         public Cookbook Get(string name)
         {
-            return _parentRepository.Get(name);
+            var cacheResult = _cache.StringGet(name);
+            if (!cacheResult.IsNullOrEmpty) return JsonConvert.DeserializeObject<Cookbook>(cacheResult);
+
+            var result = _parentRepository.Get(name);
+            _cache.StringSet(name, JsonConvert.SerializeObject(result));
+            return result;
         }
     }
 }
