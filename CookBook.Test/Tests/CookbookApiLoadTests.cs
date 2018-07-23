@@ -17,7 +17,7 @@ namespace CookBook.Test.Tests
             var results = HttpHelper.ExecuteParallelRequests($"{CookbookTestDataSetup.CookbookApiUrl}/{_cookbookNamePrefix}_1", 100, 2);
 
             // Assert
-            Assert.InRange(results.AverageTimeInMilliseconds, 0, 6);
+            Assert.InRange(results.AverageTimeInMilliseconds, 0, 2);
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace CookBook.Test.Tests
             var results = HttpHelper.ExecuteParallelRequests($"{CookbookTestDataSetup.CookbookApiUrl}/{_cookbookNamePrefix}_1", 100, 4);
 
             // Assert
-            Assert.InRange(results.AverageTimeInMilliseconds, 0, 6);
+            Assert.InRange(results.AverageTimeInMilliseconds, 0, 4);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace CookBook.Test.Tests
             var results = HttpHelper.ExecuteParallelRequests($"{CookbookTestDataSetup.CookbookApiUrl}/{_cookbookNamePrefix}_1", 100, 6);
 
             // Assert
-            Assert.InRange(results.AverageTimeInMilliseconds, 0, 8);
+            Assert.InRange(results.AverageTimeInMilliseconds, 0, 6);
         }
     }
 }

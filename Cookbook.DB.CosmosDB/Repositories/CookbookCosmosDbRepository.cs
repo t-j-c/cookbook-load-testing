@@ -5,6 +5,7 @@ using Microsoft.Azure.Documents.Client;
 using System;
 using Microsoft.Azure.Documents;
 using System.Linq;
+using Microsoft.Extensions.Configuration;
 
 namespace CookBook.DB.CosmosDB.Repositories
 {
@@ -15,11 +16,11 @@ namespace CookBook.DB.CosmosDB.Repositories
         private readonly Uri _databaseUri;
         private readonly Uri _collectionUri;
 
-        public CookbookCosmosDbRepository()
+        public CookbookCosmosDbRepository(IConfiguration configuration)
         {
-            _client = new DocumentClient(
-                new Uri("https://localhost:8081"), 
-                "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+            _client = new DocumentClient(new Uri(
+                configuration["CookBook.CosmosDB:ServiceEndpoint"]), 
+                configuration["CookBook.CosmosDB:AuthKey"]);
 
             const string databaseName = "CookBookDB";
             _databaseUri = UriFactory.CreateDatabaseUri(databaseName);

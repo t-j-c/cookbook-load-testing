@@ -1,12 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <UserSecretsId>a98642d6-d7ba-4fcb-a0a3-d784b8ce1167</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Scrutor" Version="2.2.2" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
@@ -14,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CookBook.Contracts\CookBook.Contracts.csproj" />
     <ProjectReference Include="..\Cookbook.DB.CosmosDB\CookBook.DB.CosmosDB.csproj" />
+    <ProjectReference Include="..\CookBook.DB.Redis\CookBook.DB.Redis.csproj" />
     <ProjectReference Include="..\CookBook.Model\CookBook.Model.csproj" />
     <ProjectReference Include="..\CookBook.DB.PostgreSQL\CookBook.DB.PostgreSQL.csproj" />
   </ItemGroup>

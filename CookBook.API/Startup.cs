@@ -1,4 +1,5 @@
 ﻿using CookBook.DB.CosmosDB.Repositories;
+using CookBook.DB.Redis.Repositories;
 using CookBook.Model.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,10 +20,11 @@ namespace CookBook.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ICookbookRepository, CookbookCosmosDbRepository>();
+            services.Decorate<ICookbookRepository, CookbookRedisRepository>();
 
             services.AddMvc();
         }
-
+        
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
